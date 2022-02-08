@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const userId = "<%= user.id %>";
+    </script>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <title>Home</title>
+  </head>
+  <body
+    class="d-flex w-100 flex-column align-items-center justify-content-center"
+    style="font-family: Urbanist"
+  >
+    <nav
+      class="d-flex py-3 px-4 w-100 justify-content-between align-items-center"
+    >
+      <a class="text-decoration-none text-dark" href="/home"
+        ><h1 class="fw-bold">Mongchatto</h1></a
+      >
+      <a class="btn btn-primary" href="/auth/logout">Log Out</a>
+    </nav>
+
+    <div class="mt-3 mb-2 col-8 col-lg-3">
+      <h3 class="fw-bold">Hello, <%= user.firstname %> <%= user.lastname %></h3>
+    </div>
+    <div
+      class="my-2 col-8 col-lg-3 d-flex flex-row justify-content-between align-items-center"
+    >
+      <h4 class="fw-bold">Rooms</h4>
+    </div>
+    <% rooms.forEach(room => { %>
+    <div
+      class="col-8 col-lg-3 shadow-sm border rounded-3 px-4 py-3 d-flex justify-content-between align-items-center my-2"
+    >
+      <h6 class="m-0"><%= room.name %></h6>
+      <a
+        id="<%= room._id %>"
+        class="btn btn-primary"
+        href="/home/room/<%= room._id %>"
+        >Join</a
+      >
+    </div>
+    <% }) %>
+  </body>
+</html>

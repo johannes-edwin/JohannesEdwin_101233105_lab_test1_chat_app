@@ -1,0 +1,25 @@
+{
+  "name": "mongchatto",
+  "version": "1.0.0",
+  "description": "Simple web-based chat app built using Express and MongoDB",
+  "main": "index.js",
+  "repository": "",
+  "license": "MIT",
+  "scripts": {
+    "seed": "node ./seeder/index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.2.0",
+    "socket.io": "^4.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
